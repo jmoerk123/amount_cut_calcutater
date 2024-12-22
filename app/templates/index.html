@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wood Bending Calculator</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Wood Bending Calculator</h1>
+        <form action="/calculate" method="post">
+            Blade width:
+            <input type="number" name="b" placeholder="Enter width of the blade" step="any" required>
+            Cut depth:
+            <input type="number" name="h" placeholder="Enter depth of cut" step="any" required>
+            <button type="submit">Calculate</button>
+        </form>
+        {% if result_deg is not none %}
+            <div class="result">
+                <h2>Result:</h2>
+                <p>Deg: {{ result_deg }}</p>
+                <p>Rad: {{ result_rad }}</p>
+                <p>You need {{ cuts_pr_90 }} cuts to bend 90 degrees</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

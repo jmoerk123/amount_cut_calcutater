@@ -1,0 +1,73 @@
+[project]
+name = "amount-cut-calcutater"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "FastAPI",
+    "uvicorn",
+    "jinja2",
+    "python-multipart>=0.0.19",
+]
+dynamic = ["version"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest~=8.3",
+    # Ruff CI version is in .gitlab-ci.yml
+    "ruff==0.6.3",
+    "mypy>=1.11.2",
+]
+
+# [tool.uv.sources]
+# netra-fm-trading-core = { path = "../netra-fm-trading-core", editable = true }
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[tool.mypy]
+python_version = "3.12"
+mypy_path = "app"
+explicit_package_bases = true
+packages = ["app"]
+
+# [[tool.mypy.overrides]]
+# module = [
+
+# ]
+ignore_missing_imports = true
+
+[tool.ruff]
+target-version = "py312"
+exclude = []
+
+[tool.ruff.lint]
+extend-select = [
+    "I",
+    "UP",
+    "B",
+    "DTZ",
+    "SIM",
+    "PTH",
+    "PLW",
+    "PLE",
+    "FLY",
+    "FURB",
+    "PGH",
+    "N",
+    "ANN",
+    "RUF",
+]
+extend-ignore = [
+    # self / cls do not need annotation
+    "ANN101",
+    "ANN102",
+    "ANN401",  # disable any type ban
+]
