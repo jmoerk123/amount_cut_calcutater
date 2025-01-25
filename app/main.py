@@ -16,7 +16,7 @@ async def read_form(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
-@app.post("/calculate", response_class=HTMLResponse)
+@app.post("/", response_class=HTMLResponse)
 async def calculate_sum(
     request: Request,
     cut_width: float = Form(...),
