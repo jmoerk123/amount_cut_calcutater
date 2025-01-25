@@ -7,15 +7,15 @@
 <body>
     <div class="container">
         <h1>Wood Bending Calculator</h1>
-        <form action="/" method="post">
+        <form method="post">
             Blade width [mm]:
             <input type="number" name="cut_width" placeholder="Enter width of the blade" step="any" required>
             Cut depth [mm]:
             <input type="number" name="cut_depth" placeholder="Enter depth of cut" step="any" required>
             Radius [mm]:
-            <input type="number" name="radius" placeholder="Enter the radius of the bend" step="any">
+            <input type="number" name="radius" placeholder="Enter the radius of the bend" step="any" required>
             Total degrees [degrees]:
-            <input type="number" name="total_deg" placeholder="Enter the total angel of the bend in degrees" step="any">
+            <input type="number" name="total_deg" placeholder="Enter the total angel of the bend in degrees" step="any" required>
             <button type="submit">Calculate</button>
         </form>
         {% if result_deg is not none %}
