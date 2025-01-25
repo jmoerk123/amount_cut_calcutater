@@ -1,5 +1,5 @@
 [project]
-name = "amount-cut-calcutater"
+name = "wood_bending_calculator"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"

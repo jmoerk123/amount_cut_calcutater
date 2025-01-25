@@ -8,18 +8,22 @@
     <div class="container">
         <h1>Wood Bending Calculator</h1>
         <form action="/calculate" method="post">
-            Blade width:
-            <input type="number" name="b" placeholder="Enter width of the blade" step="any" required>
-            Cut depth:
-            <input type="number" name="h" placeholder="Enter depth of cut" step="any" required>
+            Blade width [mm]:
+            <input type="number" name="cut_width" placeholder="Enter width of the blade" step="any" required>
+            Cut depth [mm]:
+            <input type="number" name="cut_depth" placeholder="Enter depth of cut" step="any" required>
+            Radius [mm]:
+            <input type="number" name="radius" placeholder="Enter the radius of the bend" step="any">
+            Total degrees [degrees]:
+            <input type="number" name="total_deg" placeholder="Enter the total angel of the bend in degrees" step="any">
             <button type="submit">Calculate</button>
         </form>
         {% if result_deg is not none %}
             <div class="result">
                 <h2>Result:</h2>
-                <p>Deg: {{ result_deg }}</p>
-                <p>Rad: {{ result_rad }}</p>
-                <p>You need {{ cuts_pr_90 }} cuts to bend 90 degrees</p>
+                <p>Deg per. cut: {{ result_deg }}&deg</p>
+                <p>Num cuts needed: {{ num_cuts }} cuts</p>
+                <p>Total curve length: {{ curve_len }} mm</p>
             </div>
         {% endif %}
     </div>
